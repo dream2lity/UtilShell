@@ -1,0 +1,51 @@
+1.用户操作相关
+
+  获取权限
+  sudo -i
+
+  新建用户
+  useradd username
+  
+  删除用户
+  userdel username
+
+  创建用户文件夹
+  test -d /home/username
+
+  设置用户密码
+  passwd username
+
+  赋予sudo权限
+  chmod u+w /etc/sudoers
+  vim /etc/sudoers               在root ALL=(ALL) ALL下一行添加username ALL=(ALL) ALL
+  chmod u-w /etc/sudoers
+
+
+  /etc/passwd
+  /etc/shadow
+  /etc/group
+  
+2.升级openssh
+
+  升级脚本及rpm制作脚本参考：https://github.com/chinazzb/openssh-openssl-rpms-build
+  
+  /etc/ssh/sshd_config 中注意的配置项，视情况而定：
+  UsePAM yes
+  PermitRootLogin yes
+  
+  如果提示：
+  Could not get shadow information for root
+
+  执行：
+  getenforce(查看) 
+  setenforce 0
+
+  vim /etc/selinux/config
+
+  修改selinux配置文件
+
+  /etc/selinux/config 
+
+  修改
+
+  SELINUX=enforcing 为 SELINUX=disabled
