@@ -28,6 +28,7 @@
 2.升级openssh
 
   升级脚本及rpm制作脚本参考：https://github.com/chinazzb/openssh-openssl-rpms-build
+  建议在上述升级脚本后追加执行： sudo chmod 600 /etc/ssh/ssh_host_ecdsa_key
   
   /etc/ssh/sshd_config 中注意的配置项，视情况而定：
   UsePAM yes
